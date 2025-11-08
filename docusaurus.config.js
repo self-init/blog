@@ -28,7 +28,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'self-init', // Usually your GitHub org/user name.
-  projectName: 'my-blog', // Usually your repo name.
+  projectName: 'blog', // Usually your repo name.
   trailingSlash: false,
   onBrokenLinks: 'throw',
 

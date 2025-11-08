@@ -2,6 +2,6 @@
 title: William Anderson - Home
 ---
 
-# Under Construction
+# Welcome
 
-This page is under construction, check back later!
+Check out my blog
