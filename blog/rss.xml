@@ -36,14 +36,16 @@
 </p><div style="text-align:center;font-style:italic">The network map of the most recent iteration of my lab.</div><p></p>
 <p>Most recently, I've begun the process of switching over to a segmented network design. I kept seeing segmented networks in CCDC practice, and they seem to have some added security benefits. You can decrease the attack surface of your machines, restrict the lateral movement of attackers, and isolate breaches to specific areas. I also learned about jump box or bastion host, which is essentially a machine that is a single dedicated SSH box. This way you can only allow SSH traffic in and out of the network through the bastion host, and keep it as up to date as possible to minimize vulnerabilities.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="future-goals">Future Goals<a href="https://williamanderson.dev/blog/homelab-setup#future-goals" class="hash-link" aria-label="Direct link to Future Goals" title="Direct link to Future Goals" translate="no">​</a></h2>
-<p>There's still a lot I want to work on with my lab.</p>
+<p>There's still a lot I want to work on with my lab. There are several aspects of defensive security I haven't even touched on yet, like logging and SIEMs, or automated alerts. These are just a few of the things I'd like to explore:</p>
 <ul>
 <li>I want to finish migrating from Gitea to GitLab, so that I can experiment with setting up runners and the security challenges that come with having a machine that automatically runs software on ever-changing code.</li>
 <li>I want to set up FreeIPA automount so home directories persist across machines.</li>
 <li>I want to set up Elastic, Logstash, and Kibana (ELK stack). I had a great time using Kibana during TracerFIRE 14.</li>
 <li>I already have a machine running Ansible on my lab, but I need to learn how to make playbooks to simplify updating and enrolling machines.</li>
 <li>I'd also like to build my knowledge of Windows machines more, so I'll have to experiment with setting up a Windows domain controller. I'd also like to look into setting up cross-trust between Active Directory and FreeIPA.</li>
-</ul>]]></content:encoded>
+</ul>
+<p>I'd also like to look at doing some red-team exercises, to see if I can identify flaws in the system an attacker could exploit. Maybe I'll write up a report on that when I get around to it. It could also be interesting to see how my security stands up to various security frameworks. That may be a good avenue to explore to identify further projects to work on with my lab.</p>
+<p>Let me know what you think I should explore next!</p>]]></content:encoded>
             <category>Homelab</category>
             <category>Linux</category>
         </item>
