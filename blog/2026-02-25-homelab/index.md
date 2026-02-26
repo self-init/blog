@@ -47,10 +47,14 @@ Most recently, I've begun the process of switching over to a segmented network d
 
 ## Future Goals
 
-There's still a lot I want to work on with my lab.
+There's still a lot I want to work on with my lab. There are several aspects of defensive security I haven't even touched on yet, like logging and SIEMs, or automated alerts. These are just a few of the things I'd like to explore:
 
 - I want to finish migrating from Gitea to GitLab, so that I can experiment with setting up runners and the security challenges that come with having a machine that automatically runs software on ever-changing code. 
 - I want to set up FreeIPA automount so home directories persist across machines.
 - I want to set up Elastic, Logstash, and Kibana (ELK stack). I had a great time using Kibana during TracerFIRE 14.
 - I already have a machine running Ansible on my lab, but I need to learn how to make playbooks to simplify updating and enrolling machines.
 - I'd also like to build my knowledge of Windows machines more, so I'll have to experiment with setting up a Windows domain controller. I'd also like to look into setting up cross-trust between Active Directory and FreeIPA.
+
+I'd also like to look at doing some red-team exercises, to see if I can identify flaws in the system an attacker could exploit. Maybe I'll write up a report on that when I get around to it. It could also be interesting to see how my security stands up to various security frameworks. That may be a good avenue to identify future lab projects.
+
+Let me know what you think I should explore next!
