@@ -27,6 +27,9 @@ While the install scripts were an easy and convenient way to set up a service, t
 
 Once I began my first semester at UTSA in the Fall, I also began attending UTSA's practices for CCDC: the Collegiate Cyber Defense Competition. At these practices I began to learn a lot very quickly about how to manage Linux systems. We did several practices learning to set up a variety of services: bind9, nginx, apache, et cetera. I was learning a lot very quickly, and I took what I was learning and implemented it back into my lab.
 
+![Proxmox Interface](./proxmox.png)
+<ImageCaption>Editing my nginx config in Proxmox.</ImageCaption>
+
 An example of this was nginx. I created a container and installed nginx on it to use as a reverse proxy. This allowed me to route the traffic from all my services through one machine, and change which one I accessed based on the URL. To set up the DNS records for that, I used bind9. Finally, I set up pfSense to act as a firewall/router, and port forwarded the proxy through pfSense. This was the beginning of my lab starting to resemble a real network.
 
 ## From Deployment to Administration
