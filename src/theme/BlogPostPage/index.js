@@ -36,31 +36,31 @@ function BlogPostPageContent({sidebar, children}) {
       <ContentVisibility metadata={metadata} />
 
       <BlogPostItem>{children}</BlogPostItem>
-      
+
 
       {(nextItem || prevItem) && (
         <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
       )}
     <br />
     <Giscus
-            id="comments"
-            repo="self-init/blog"
-            repoId="R_kgDOQCvoMQ"
-            category="Blog Post Comments"
-            categoryId="DIC_kwDOQCvoMc4Cxk_x"
-            mapping="pathname"
-            strict="1"
-            reactionsEnabled="1"
-            emitMetadata="0"
-            inputPosition="top"
-            theme="dark"
-            lang="en"
-            loading="lazy"
-            crossOrigin="anonymous"
-            async>
-    </Giscus>
+      id="comments"
+      repo="self-init/blog"
+      repoId="R_kgDOQCvoMQ"
+      category="Blog Post Comments"
+      categoryId="DIC_kwDOQCvoMc4Cxk_x"
+      mapping="pathname"
+      strict="1"
+      reactionsEnabled="1"
+      emitMetadata="0"
+      inputPosition="top"
+      theme="dark"
+      lang="en"
+      loading="lazy"
+      crossOrigin="anonymous"
+      async
+    />
     </BlogLayout>
-    
+
   );
 }
 export default function BlogPostPage(props) {

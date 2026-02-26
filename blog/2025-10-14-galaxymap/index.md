@@ -1,22 +1,22 @@
 ---
 slug: galaxymap
-title: Procedurally generating a galaxy map
+title: Procedurally Generating a Galaxy Map
 authors: [william]
-tags: [gamedev, spacegame]
+tags: [gamedev, spacegame, softwaredev]
 ---
 
 I'm currently working on a video game inspired by games like Endless Sky and Stellaris. These games both feature a "star map" of different systems with connections that the player can travel along. Endless Sky has a premade starmap that matches the vibe of what I want, but Stellaris procedurally generates it's star map for each game you play, which is the approach I want to take.
 
 <!-- truncate -->
 ![The star map from Endless Sky](./Endless_Sky_Full_Map.webp)
-The star map from Endless Sky. [Source](https://endless-sky.fandom.com/wiki/Star_Map_Regions_%26_Labels)
+<ImageCaption>The star map from Endless Sky. [Source](https://endless-sky.fandom.com/wiki/Star_Map_Regions_%26_Labels)</ImageCaption>
 
 Placing random points on a map and connecting them is easy, but it doesn't look good without some fine tuning, and there's no gaurantee that you can reach every system from every other system. I needed to come up with a more complex solution that solved two problems:
 1. Each system has to be connected, so you can travel between any two systems.
 2. Systems need to be connected in a way that looks visually pleasing (i.e. close systems are connected together, and there shouldn't be too many overlapping connections).
 
 ![A really bad galaxy map](./galaxy_map_oops.png)
-And if you accidentally connect too many systems at random, you just get a pile of uncooked spaghetti.
+<ImageCaption>And if you accidentally connect too many systems at random, you just get a pile of uncooked spaghetti.</ImageCaption>
 
 The first problem to solve was making sure every system was connected. This sounds simple at first, just travel along the connections until you've touched every connected system, and check if the other system is in that list.
 
@@ -138,8 +138,8 @@ void main() {
 Compute shaders! GPUs are pretty good at doing lots of vector math at once, so we can use a compute shader to calculate every single distance beforehand on the gpu, and just read from an array of the stored distances. The compute shader works by first specifying the workgroup size, and then defining the buffers for the shader. I used 3 buffers: params, which just contains the total number of systems, positions, which is an array of all the positions of the systems, and distances, which is an array of the results. I hadn't made a compute shader before, and my only experience with shaders was with Godot's shader lanuage, but it was fairly easy to get it to work once I got the buffers figured out.
 
 ![Galaxy map that got messed up with the compute shader](./galaxy_map_no_y.png)
-Here I messed up the buffer by excluding the Y values somehow, leading to to this interesting pattern.
+<ImageCaption>Here I messed up the buffer by excluding the Y values somehow, leading to to this interesting pattern.</ImageCaption>
 
 I also achieved a minor performance boost by assigning each system an ID and accessing the array using that instead of using the system object directly, which avoided some internal conversion. Perhaps some of these optimizations are a little preemptive, but until I come up with a solution for serializing and deserializing a star map, minimizing generation time will help speed up other aspects of game development. Additionally, I don't expect to change this aspect of the game much at all, it fits my vision pretty well, and may only require some parameter tweaks between here in the final product.
 
-Finally, there are still further optimizations I could make to the process. Right now a lot of the generation happens on a single thread, but I think a lot of it could easily be modified to be multithreaded, since many of the operations aren't sequential in nature. Additionally, the way I'm getting an array of the closest systems to another system is by sorting all of the systems by their distance. I could definitely speed this up by finding the first N closest systems, and only sorting those instead of sorting all of them, since I will likely only need the first 5 or 10 closest systems at most. 
+Finally, there are still further optimizations I could make to the process. Right now a lot of the generation happens on a single thread, but I think a lot of it could easily be modified to be multithreaded, since many of the operations aren't sequential in nature. Additionally, the way I'm getting an array of the closest systems to another system is by sorting all of the systems by their distance. I could definitely speed this up by finding the first N closest systems, and only sorting those instead of sorting all of them, since I will likely only need the first 5 or 10 closest systems at most.

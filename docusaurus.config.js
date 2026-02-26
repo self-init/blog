@@ -72,16 +72,18 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/myface.jpg',
       colorMode: {
-        respectPrefersColorScheme: true,
+				respectPrefersColorScheme: false,
+				defaultMode: 'dark',
+				disableSwitch: true,
       },
       navbar: {
         title: 'William Anderson',
-        logo: {
-          alt: 'Site Logo',
-          src: 'img/logo.svg',
-        },
+        // logo: {
+        //   alt: 'Site Logo',
+        //   src: 'img/logo.svg',
+        // },
         items: [
           {to: '/blog', label: 'Blog', position: 'left'},
           //{
@@ -100,8 +102,51 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
         additionalLanguages: ['gdscript', 'glsl']
-      },
-    }),
+			},
+			tableOfContents: {
+				minHeadingLevel: 2,
+				maxHeadingLevel: 6
+			}
+		}),
+    plugins: [
+      function yamlLoaderPlugin() {
+        return {
+          name: 'yaml-loader-plugin',
+          configureWebpack() {
+            return {
+              module: {
+                rules: [
+                  {
+                    test: /\.ya?ml$/,
+                    use: 'js-yaml-loader',
+                  },
+                ],
+              },
+            };
+          },
+        };
+			},
+			function blogPostsGlobalDataPlugin() {
+			  return {
+			    name: 'blog-posts-global-data',
+			    async allContentLoaded({ allContent, actions }) {
+			      const { setGlobalData } = actions;
+			      const blogPlugin = allContent['docusaurus-plugin-content-blog']?.['default'];
+			      const posts = blogPlugin?.blogPosts ?? [];
+
+			      setGlobalData({
+			        posts: posts.map((post) => ({
+			          title: post.metadata.title,
+			          permalink: post.metadata.permalink,
+			          date: post.metadata.date,
+			          description: post.metadata.description,
+			          tags: post.metadata.tags,
+			        })),
+			      });
+			    },
+			  };
+			}
+    ],
 };
 
 export default config;

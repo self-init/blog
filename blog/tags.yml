@@ -7,3 +7,18 @@ spacegame:
   label: Space Game
   permalink: spacegame
   description: Posts about the space game I am currently working on
+
+softwaredev:
+  label: Software Development
+  permalink: softwaredev
+  description: Posts related to software development
+
+linux:
+  label: Linux
+  permalink: linux
+  description: Posts related to Linux
+
+homelab:
+  label: Homelab
+  permalink: homelab
+  description: Posts related to my homelab

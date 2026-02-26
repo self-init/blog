@@ -6,25 +6,125 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-primary: #613583;
+  --ifm-color-primary-dark: #573076;
+  --ifm-color-primary-darker: #522d6f;
+  --ifm-color-primary-darkest: #44255c;
+  --ifm-color-primary-light: #6b3a90;
+  --ifm-color-primary-lighter: #703d97;
+  --ifm-color-primary-lightest: #7e45aa;
+  --ifm-navbar-background-color: #EBD;
+  --ifm-background-color: #EBD;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "mono";
+}
+
+html[data-theme='light'] footer {
+  --ifm-footer-background-color: #f3bbf7;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #dc8add;
+  --ifm-color-primary-dark: #d46ed5;
+  --ifm-color-primary-darker: #d060d1;
+  --ifm-color-primary-darkest: #c139c3;
+  --ifm-color-primary-light: #e4a6e5;
+  --ifm-color-primary-lighter: #e8b4e9;
+  --ifm-color-primary-lightest: #f5ddf5;
+  --ifm-background-color: #0b0d10;
+  --ifm-navbar-background-color: transparent;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 996px) {
+	:root {
+		--ifm-navbar-background-color: #0b0d10;
+	}
+}
+
+h2 a {
+	color: var(--ifm-font-color-base);
+	font-size: 0.75em;
+}
+
+p > img {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+html.blog-list-page article,
+html.blog-authors-posts-page article,
+html.blog-tags-post-list-page article,
+.pagination-nav__link,
+.sidebar_re4s,
+.tableOfContents_bqdL {
+	border-color: var(--docusaurus-tag-list-border);
+	box-shadow: 2px 2px 0px var(--ifm-color-primary-lightest);
+	padding: 10px;
+	border-width: 1px;
+	border-radius: 15px;
+	border-style: solid;
+	background-color: var(--ifm-background-color);
+}
+
+html.blog-post-page li a.tag_zVej {
+	background-color: var(--ifm-background-color);
+	box-shadow: 2px 2px 0px var(--ifm-color-primary-lightest);
+}
+
+.pagination-nav__link {
+	border-radius: var(--ifm-global-radius);
+}
+
+.table-of-contents {
+	border-left: 0px;
+	padding: 0px;
+}
+
+html[data-theme='dark'] footer {
+  --ifm-footer-background-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+html {
+  position: relative;
+}
+
+html::before {
+  content: '';
+  position: fixed;
+  top: -40px;
+  left: -40px;
+  width: calc(100% + 80px);
+  height: calc(100% + 80px);
+  background-image:
+    linear-gradient(rgba(42, 82, 128, 0.15) 2px, transparent 1px),
+    linear-gradient(90deg, rgba(42, 82, 128, 0.15) 2px, transparent 1px);
+  background-size: 40px 40px;
+  animation: grid-scroll 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes grid-scroll {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(40px, 40px); }
+}
+
+.authorSocialIcon_XYv3 {
+	color: white;
+}
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
