@@ -20,7 +20,7 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "mono";
+	font-family: "monospace";
 }
 
 html[data-theme='light'] footer {
@@ -58,30 +58,77 @@ p > img {
   margin: auto;
 }
 
+%outlinestyle {
+	box-shadow: 2px 2px 0px var(--ifm-color-primary-lightest);
+	border: 1px solid var(--docusaurus-tag-list-border);
+	background-color: var(--ifm-background-color);
+}
+
+%outlinehoverstyle {
+	transform: translate(-2px,-2px);
+	box-shadow: 4px 4px 0px var(--ifm-color-primary-lightest);
+}
+
 html.blog-list-page article,
 html.blog-authors-posts-page article,
 html.blog-tags-post-list-page article,
-.pagination-nav__link,
 .sidebar_re4s,
 .tableOfContents_bqdL {
-	border-color: var(--docusaurus-tag-list-border);
-	box-shadow: 2px 2px 0px var(--ifm-color-primary-lightest);
+	@extend %outlinestyle;
 	padding: 10px;
-	border-width: 1px;
 	border-radius: 15px;
-	border-style: solid;
-	background-color: var(--ifm-background-color);
 }
-
+/*
 html.blog-post-page li a.tag_zVej {
-	background-color: var(--ifm-background-color);
-	box-shadow: 2px 2px 0px var(--ifm-color-primary-lightest);
-}
+	@extend %outlinestyle;
+	transition-duration: 250ms;
+	padding: 8px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	display: inline-block;
+	&
+} */
 
 .pagination-nav__link {
+	@extend %outlinestyle;
+	padding: 10px;
 	border-radius: var(--ifm-global-radius);
+	transition-duration: 250ms;
+	&:hover {
+		@extend %outlinehoverstyle;
+	}
 }
 
+html.blog-post-page li a.tag_zVej,
+.badgebutton {
+	@extend %outlinestyle;
+	/* border: 1px solid var(--docusaurus-tag-list-border); */
+	border-radius: var(--ifm-global-radius);
+	/* box-shadow: 2px 2px 0px var(--ifm-color-primary-lightest); */
+	color: var(--ifm-link-color);
+	padding: 3px 10px;
+	font-size: 0.78rem;
+	font-family: monospace;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	display: inline-block;
+	margin-right: 6px;
+	margin-bottom: 6px;
+	transition-duration: 250ms;
+	a:hover & {
+		@extend %outlinehoverstyle;
+	}
+}
+
+a:hover .badgebutton,
+html.blog-post-page li a.tag_zVej:hover {
+	@extend %outlinehoverstyle;
+}
+
+
+.theme-doc-sidebar-container {
+	border-right: 0px;
+}
 .table-of-contents {
 	border-left: 0px;
 	padding: 0px;
