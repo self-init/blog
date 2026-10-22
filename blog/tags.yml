@@ -9,7 +9,7 @@ spacegame:
   description: Posts about the space game I am currently working on
 
 softwaredev:
-  label: Software Development
+  label: Software Dev
   permalink: softwaredev
   description: Posts related to software development
 
@@ -22,3 +22,8 @@ homelab:
   label: Homelab
   permalink: homelab
   description: Posts related to my homelab
+
+ctf:
+  label: CTF Writeups
+  permalink: ctf
+  description: CTF Writeups
