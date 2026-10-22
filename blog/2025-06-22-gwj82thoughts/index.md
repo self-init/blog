@@ -5,7 +5,9 @@ authors: [william]
 tags: [gamedev, softwaredev]
 ---
 
-This blog post was made on [itch.io](https://selfinit.itch.io/blind-baize/devlog/971759/post-jam-thoughts) and later reuploaded here.
+import GodotEmbed from '@site/src/components/GodotEmbed';
+
+This blog post was made on [itch.io](https://selfinit.itch.io/blind-baize/devlog/971759/post-jam-thoughts) and later reuploaded here. You can play the game at the bottom of the blog post!
 
 What a fun week!
 
@@ -34,3 +36,6 @@ I'm not sure if I plan to come back and work on this game more or not. I have id
 ## Final Thoughts
 
 Whatever I decide to do (or not do) with this game, it was a great learning experience and taught me a lot of good lessons about using Godot. From control flow to scene organization, there were a lot of things that I will take with me to future projects. Overall the jam was a lot of fun and I hope to participate in the next Godot Wild Jam if I have the time available!
+
+<GodotEmbed source="/blind-baize/">
+</GodotEmbed>
