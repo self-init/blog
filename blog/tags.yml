@@ -23,7 +23,7 @@ homelab:
   permalink: homelab
   description: Posts related to my homelab
 
-ctf:
-  label: CTF Writeups
-  permalink: ctf
-  description: CTF Writeups
+hecate:
+  label: Hecate OS
+  permalink: hecate
+  description: Posts about my Hecate OS project

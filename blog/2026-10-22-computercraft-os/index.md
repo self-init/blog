@@ -2,7 +2,7 @@
 slug: computercraft-os
 title: "Building a Unix-like OS for ComputerCraft"
 authors: [william]
-tags: [softwaredev]
+tags: [hecate, softwaredev]
 ---
 
 Around a year ago I began working on building an operating system for ComputerCraft. It started when I noticed the complete lack of security features in ComputerCraft, and evolved into a months-long lesson about the architecture of Linux/Unix. 
