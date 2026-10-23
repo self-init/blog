@@ -101,7 +101,7 @@ const config = {
 			prism: {
 				theme: prismThemes.github,
 				darkTheme: prismThemes.dracula,
-				additionalLanguages: ["gdscript", "glsl"],
+				additionalLanguages: ["gdscript", "glsl", "lua"],
 			},
 			tableOfContents: {
 				minHeadingLevel: 2,
