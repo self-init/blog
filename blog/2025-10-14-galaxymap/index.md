@@ -2,7 +2,7 @@
 slug: galaxymap
 title: Procedurally Generating a Galaxy Map
 authors: [william]
-tags: [gamedev, spacegame, softwaredev]
+tags: [gamedev, softwaredev]
 ---
 
 I'm currently working on a video game inspired by games like Endless Sky and Stellaris. These games both feature a "star map" of different systems with connections that the player can travel along. Endless Sky has a premade starmap that matches the vibe of what I want, but Stellaris procedurally generates it's star map for each game you play, which is the approach I want to take.
