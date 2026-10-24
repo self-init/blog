@@ -1,6 +1,6 @@
 ---
 slug: computercraft-os
-title: "Hecate: Building a Unix-like OS for ComputerCraft"
+title: "Building a Unix-like OS for ComputerCraft"
 authors: [william]
 tags: [hecate, softwaredev]
 ---
