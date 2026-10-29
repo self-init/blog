@@ -21,7 +21,7 @@ To combat the growing complexity of Lua, I began to use LuaCATS. LuaCATS uses sp
 
 Well, not with *no* issues. There were some limitations to LuaCATS that made it difficult to work with. For example, LuaCATS is prone to code drift. Since the typing information is defined by the annotations, updating the code doesn't update the typing with it. And since it's just pure Lua, there's no type checking, so an incorrectly typed function will still run, but will probably lead to errors.
 
-Futhermore, LuaCATS annotations required constant casting. When defining a new class or when using generics typing information was constantly lost and had to be re-added with type casting, which shows up as a comment at the end of the line. Part of the problem was my design, since I made a bimap with one `get` that worked in both directions. But even when I added overloads to work around it, LuaCATS couldn’t connect them to the map’s actual types, so I still had to cast.
+Futhermore, LuaCATS annotations required constant casting. When defining a new class or when using generics, type information was constantly lost and had to be re-added with type casting, which shows up as a comment at the end of the line. Part of the problem was my design, since I made a bimap with one `get` that worked in both directions. But even when I added overloads to work around it, LuaCATS couldn’t connect them to the map’s actual types, so I still had to cast.
 
 ```lua title="basefs.lua"
 local parent_path = self.inode_path_map:get(parent_inode.id) --[[@as string]]
@@ -71,7 +71,7 @@ function TwoWayMap:get(key)
 end
 ```
 
-Beyond LuaCATS though, there were limitations with Lua itself. The biggest one for me being that Lua lacks almost any syntax for classes. You can make classes fairly easily, but it requires using metatables was just even more boilerplate on top of LuaCATS. And when it came to inheritance, things just got even more complicated. Navigating through a class's source code became a chore and actively slowed down development. 
+Beyond LuaCATS though, there were limitations with Lua itself. The biggest one for me being that Lua lacks almost any syntax for classes. You can make classes fairly easily, but it required metatables, which meant even more boilerplate on top of LuaCATS. And when it came to inheritance, things just got even more complicated. Navigating through a class's source code became a chore and actively slowed down development. 
 
 ## Making the choice to migrate
 
@@ -79,7 +79,7 @@ Eventually I'd had enough. I wanted a much more powerful typing system, and nati
 
 TypeScriptToLua (also known as TSTL) is a tool that takes TypeScript code and emits Lua code. This was great for me because TypeScript has a much more powerful typing system, and syntax for classes, instantly resolving my two largest gripes with plain Lua. 
 
-You can see below the same class and functionally as above (albeit with a different name and splitting `get` into both `get` and `getKey`), implemented TypeScript. It's nearly half the length of the old class, and the typing information is actually properly tracked and enforced. It's much easier to read, and you don't have to work to maintain a bunch of boilerplate.
+You can see below the same class and functionally as above (albeit with a different name and splitting `get` into both `get` and `getKey`), implemented in TypeScript. It's nearly half the length of the old class, and the typing information is actually properly tracked and enforced. It's much easier to read, and you don't have to work to maintain a bunch of boilerplate.
 
 ```ts title="bimap.ts"
 export class BiMap<K, V> {
@@ -101,11 +101,11 @@ export class BiMap<K, V> {
 }
 ```
 
-There are however, some drawbacks with migrating to TypeScript. The biggest of those was debugging. Debugging Hecate was already slightly more complicated than normal since I link each of the Lua files into one large script, and you have to map each part of the final script to the file it actually came from. TypeScript only complicated it even further, since the generated Lua no longer directly exists anywhere in the code. Luckily this is a task that AI is very beneficial for. It was easily able to assist when I needed to understand where a piece of the output script came from.
+There are, however, some drawbacks with migrating to TypeScript. The biggest of those was debugging. Debugging Hecate was already slightly more complicated than normal since I link each of the Lua files into one large script, and you have to map each part of the final script to the file it actually came from. TypeScript only complicated it even further, since the generated Lua no longer directly exists anywhere in the code. Luckily this is a task that AI is very beneficial for. It was easily able to assist when I needed to understand where a piece of the output script came from.
 
-There's also one more thing, the cost to migrate. I didn't have to migrate the entire project all at once, each file could be done one at a time, but I already had thousands of lines of code. Even with the help of AI, it took a lot of work to make the migration, since I wanted to have a hand in every step of it and not just hand it off to the AI.
+There's also one more thing: the cost to migrate. I didn't have to migrate the entire project all at once, each file could be done one at a time, but I already had thousands of lines of code. Even with the help of AI, it took a lot of work to make the migration, since I wanted to have a hand in every step of it and not just hand it off to the AI.
 
-There was one thing that could have mitigated both those issues though, and that was Teal. Teal is to Lua what TypeScript is to JavaScript: it follows mostly the same syntax as Lua, but adds typing and constructs. And importantly for me, it can compile back to Lua. It would have meant a lot less work, essentially just converting the LuaCATS annotations into Teal types, but Teal while teal does have records and interfaces, it still doesn't have a class system, which was one of the major draws of TypeScript.
+There was one thing that could have mitigated both of those issues though, and that was Teal. Teal is to Lua what TypeScript is to JavaScript: it follows mostly the same syntax as Lua, but adds typing and constructs. And importantly for me, it can compile back to Lua. It would have meant a lot less work, essentially just converting the LuaCATS annotations into Teal types, but Teal while teal does have records and interfaces, it still doesn't have a class system, which was one of the major draws of TypeScript.
 
 I may have still considered Teal (and maybe will in the future) for one main reason though: the Teal compiler is written in Teal and compiles to Lua. Right now it's pretty much impossible for me to get to a point with Hecate where I could build Hecate in Hecate. It would mean reimplementing TSTL for pretty much no benefit. With Teal, it would almost be free, it would only mean modifying the build scripts to run in Lua. But, that would be yet another rewrite, essentially all just to achieve this one simple goal, so for now it's out of scope. Maybe if I ever make a version 2.0.
 
