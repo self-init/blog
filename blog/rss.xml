@@ -4,7 +4,7 @@
         <title>William Anderson Blog</title>
         <link>https://williamanderson.dev/blog</link>
         <description>William Anderson Blog</description>
-        <lastBuildDate>Mon, 26 Oct 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 Oct 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[Why I migrated from Lua to TypeScript]]></title>
             <link>https://williamanderson.dev/blog/migrating-to-typescript</link>
             <guid>https://williamanderson.dev/blog/migrating-to-typescript</guid>
-            <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+            <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
             <description><![CDATA[Part way through the development of Hecate I realized I was hitting the limitations of using pure Lua. While I have been using Lua for years, this was my largest project utilizing it, and its weaknesses for something of this scale really started to show. I eventually made the decision to migrate to TypeScript, and it definitely improved the development process, but not without some bumps along the way.]]></description>
             <content:encoded><![CDATA[<p>Part way through the development of <a class="" href="https://williamanderson.dev/blog/computercraft-os">Hecate</a> I realized I was hitting the limitations of using pure Lua. While I have been using Lua for years, this was my largest project utilizing it, and its weaknesses for something of this scale really started to show. I eventually made the decision to migrate to TypeScript, and it definitely improved the development process, but not without some bumps along the way.</p>
 <p><img decoding="async" loading="lazy" alt="Graphic showing an arrow pointing from the Lua logo to the TypeScript logo" src="https://williamanderson.dev/assets/images/lua-to-ts-580a71553fd56b7ba5932dfb3da098a6.png" width="912" height="384" class="img_ev3q"></p>
