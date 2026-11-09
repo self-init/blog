@@ -5,7 +5,7 @@ authors: [william]
 tags: [homelab]
 ---
 
-This past weekend [Nathan](https://linkedin.com/in/nathan-bledsoe-cyber) and I gave a talk on my homelab at Rowdy CyberCon. It went really well, there were over 70 who came and watched the presentation, and I got a lot of great feedback from people who wanted to start a homelab but weren't sure where to start. I'm really happy with how it turned out! If you want to download the slides you can get them [here](homelabbing.pdf).
+This past weekend [Nathan](https://linkedin.com/in/nathan-bledsoe-cyber) and I gave a talk on our homelabs at Rowdy CyberCon. It went really well, there were over 70 who came and watched the presentation, and I got a lot of great feedback from people who wanted to start a homelab but weren't sure where to start. I'm really happy with how it turned out! If you want to download the slides you can get them [here](homelabbing.pdf).
 
 <!--truncate-->
 
